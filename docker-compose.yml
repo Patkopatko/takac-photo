@@ -1,0 +1,15 @@
+version: '3.8'
+
+services:
+  takac-photo:
+    build: .
+    container_name: takac-photo-analyzer
+    ports:
+      - "5555:5555"
+    environment:
+      - OPENAI_API_KEY=${OPENAI_API_KEY}
+      - ANTHROPIC_API_KEY=${ANTHROPIC_API_KEY}
+    volumes:
+      - ./uploads:/app/uploads
+      - ./results:/app/results
+    restart: unless-stopped
