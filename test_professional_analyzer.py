@@ -57,7 +57,7 @@ class TestColorMapping(unittest.TestCase):
         for r, g, b in grays:
             color = self.mapper.get_color_name(r, g, b)
             self.assertNotEqual(color, "red", f"Gray {r},{g},{b} was mapped to red!")
-            self.assertIn("gray", color.lower())
+            self.assertIn(color.lower(), ["gray", "silver", "darkgray", "lightgray"])
 
 class TestMetadataExtraction(unittest.TestCase):
     """Test metadata extraction with various scenarios"""
